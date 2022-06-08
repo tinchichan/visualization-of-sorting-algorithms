@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>Visualization of Sorting Algorithms</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark ">
+    <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+    </div>
+    <div class="cover-container d-flex p-3 w-100 h-100 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Learning CS</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Sorting Algorithms</a>
+                    <a class="nav-link" href="#">Visualization</a>
+                    <a class="nav-link" href="#">Quiz</a>
+                    <a class="nav-link" href="#">User: <span id="updateUserName"></span><br>
+                    </a>
+                </nav>
+                <div>
+                    <audio id="audio" loop="loop">
+                        <source src="audio/bgm.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="doneSoundEffect">
+                        <source src="audio/done.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="loginSoundEffect">
+                        <source src="audio/login.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="logoutSoundEffect">
+                        <source src="audio/logout.mp3" type="audio/mpeg">
+                    </audio>
+                    <button class="btn btn-dark" id="playPauseBtn" href="#" onclick="playPause()">Bgm OFF</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="hpBtn">
+            <p class="lineDisplay anim-typewriter">Welcome to the World of Sorting Algorithms!<span></span></p>
+            <p class="lineDisplay anim-typewriter2">What is your name<span>?</span></p>
+            <div class="col-sm-4 mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter your Username" id="userNameInput"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="userNameBtn">Enter</button>
+                </div>
+            </div>
+            <p class="lineDisplay2 top-50" id="displayUserName"></p>
+
+        </main>
+
+        <main class="glowing" id="saBtn">
+            <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item bg-purple" role="presentation">
+                  <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#bubbleS" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Bubble Sort</button>
+                </li>
+                <li class="nav-item bg-purple" role="presentation">
+                  <button class="nav-link" data-bs-toggle="pill" data-bs-target="#bogoS" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bogo sort</button>
+                </li>
+                <li class="nav-item bg-purple" role="presentation">
+                  <button class="nav-link" data-bs-toggle="pill" data-bs-target="#is" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Insertion sort</button>
+                </li>
+                <li class="nav-item bg-purple" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#ss" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Selection sort</button>
+                  </li>
+                  <li class="nav-item bg-purple" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#qs" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Quick sort</button>
+                  </li>
+            </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="bubbleS" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div id="sort1">
+                        <h1 class="text-start">Bubble Sort</h1>
+                        <p class="text-start">
+                            <p class="text-start">1. compare two adjacent elements, swap the bigger one to right</p><br>
+                            <p class="text-start">2. repeat step 1, until the last element is the biggest.</p><br>
+                            <p class="text-start">3. repeat step 1 + step2, the original largest element which already in the last cannot be changed.</p><br>
+                            <p class="text-start">4. repeat the above step, until do not need to compare any more.</p><br>
+                        </div>
+                </div>
+                <div class="tab-pane fade" id="bogoS" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div id="sort2">
+                        <h1 class="text-start">Bogo sort</h1>
+                        <p class="text-start">1. Check the sorting of elements, wrong or correct?</p><br>
+                        <p class="text-start">2. If wrong sorting, randomly generate a new sequence, repeat step 1.</p><br>
+                        <p class="text-start">3. If correct, complete sorting</p><br>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="is" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div id="sort3">
+                        <h1 class="text-start">Insertion sort</h1>
+                        <img class="sa-photo" src="pictures/poker.png" alt="">
+                        <p class="text-start">1. Before sorting the element at index N, make sure from first element to N-1 element already sorted.</p><br>
+                        <p class="text-start">2. Then compare N with the previous sorted sequence.</p><br>
+                        <p class="text-start">3. And so on, until complete sorting</p><br>
+                        <p class="text-start">image source: http://java-latte.blogspot.com/2013/06/insertion-sort-algorithm.html </p><br>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="ss" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div id="sort4">
+                        <h1 class="text-start">Selection sort</h1>
+                        <p class="text-start">1. Prepare a new list.</p><br>
+                        <p class="text-start">2. Find the smallest element in the original sequence and assign to the last position in the new list.</p><br>
+                        <p class="text-start">3. Repeat step 2, until complete sorting</p><br>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="qs" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div id="sort5">
+                        <h1 class="text-start">Quick sort</h1>
+                        <img class="sa-photo" src="pictures/quickSort.png" alt="">
+                        <p class="text-start">1. Choose any one number in the sequence as the pivot.</p><br>
+                            <p class="text-start">2. The original sequence is divided into two new sequences.</p><br>
+                            <p class="text-start">3. The elements in one sequence are all less than pivot, and the elements in other one sequence are all larger than pivot.</p><br>
+                            <p class="text-start">4. These two new sequences repeat the step 1 to step 3, until it can not be divided into a new sequence.</p><br>
+                            <p class="text-start">5. Individual items are already sorted.</p><br>
+                            <p class="text-start">6. Combine the individual items as a sorted sequence.</p></p>
+                            <p class="text-start">image source:https://dev.to/mwong068/quick-sort-in-ruby-2302 </p><br>
+                    </div>
+                </div>
+              </div>
+        </main>
+
+        <main class="glowing" id="visBtn">
+            <h1>*Visualization of Sort Algorithms*</h1>
+            <div id="visTab">
+                <div class="navbar" id="navbar">
+                    <button class="btn btn-blue" id="stopAndRegenBtn" onclick="regenFrame()">New</button>
+                    <span class="options">
+                        <select name="select sort algorithm" class="algo-menu">
+                            <option value="">Choose An Algo</option>
+                            <option value="1">Bubble Sort</option>
+                            <option value="2">Selection Sort</option>
+                            <option value="3">Insertion Sort</option>
+                            <option value="4">Quick Sort</option>
+                            <option value="5">Bogo Sort</option>
+                        </select>
+                    </span>
+                    <span class="options">
+                        <select class="size-menu">
+                            <option value="">Number of Bars</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
+                    </span>
+                    <span class="options">
+                        <select id="menu" class="speed-menu">
+                            <option value="1">Speed of Animation</option>
+                            <option value="0.5">0.5X</option>
+                            <option value="2">2X</option>
+                            <option value="4">4X</option>
+                        </select>
+                    </span>
+                    <button class="start btn btn-yellow">Go!</button>
+                    <a class="icon"><i class="fa fa-bar"></i></a>
+                </div>
+                <br /><br />
+                <div class="center">
+                    <div class="frame" id="box">
+                        <div class="array"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main class="glowing" id="quizBtn">
+            <img class="" src="pictures/soGood.gif" alt="">
+            <h1>Let's try some causal exercises!</h1>
+            <div id="quizTab">
+            </div>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <p> by C.T.C., L.H.Y., and T.T.Y.</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
